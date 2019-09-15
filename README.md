@@ -15,8 +15,8 @@
 1. Type `adb devices` (the device should appear in the list)
 1. Open some input field on the phone, for ex, browser -> tap on the URL (keyboard should be visible)
 1. Type `adb shell input text test`.
-1. If the text 'test' appeared in the input field - you're done everything correctly.
-1. If not - please, google how to enable sending events via adb to your phone
+1. If the text 'test' appeared in the input field - you've done everything correctly.
+1. If not, please google how to enable sending events via adb to your phone
 
 # Installing
 
