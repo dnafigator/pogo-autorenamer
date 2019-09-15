@@ -1,32 +1,44 @@
 "use strict";
 
-const adb = '/Users/idcompany/Library/Android/sdk/platform-tools/adb',
+const
+    config = require('./config'),
     { promisify } = require('util'),
     execCb = require('child_process').exec,
     exec = promisify(execCb)
 
 function sendInput(args, t) {
-    console.log('Sending input ' + args)
-    return exec(adb + ' shell input ' + args).then((res) => {
+    var cmd = config.adbPath + ' shell input ' + args
+    console.log('Executing ' + cmd)
+    return exec(cmd).then((res) => {
         console.log(`stdout: ${res.stdout}`);
         console.error(`stderr: ${res.stderr}`);
         return delay(t)
     })
 }
 
-function tap(x, y, sleep = 500) {
+function mi8toAnyScreen(x, y) {
+    var s = [x / 1080, y / 2248]
+    console.log(s[0] + ', ' + s[1] + ' /*' + ptoPx(s[0], s[1]) + '*/')
+}
+
+function ptoPx(x, y) {
+    return '' + Math.floor(x * config.screenSize[0]) + ' ' + Math.floor(y * config.screenSize[1])
+}
+
+
+function tap(x, y, sleep = config.sleep) {
     console.log('tapping ' + x + ' ' + y)
-    return sendInput('tap ' + x + ' ' + y, sleep)
+    return sendInput('tap ' + ptoPx(x, y), sleep)
 }
 
-function longTap(x, y, sleep = 500) {
+function longTap(x, y, sleep = config.sleep) {
     console.log('longTapping ' + x + ' ' + y)
-    return sendInput('swipe ' + x + ' ' + y + ' ' + x + ' ' + y + ' 500', sleep)
+    return sendInput('swipe ' + ptoPx(x, y) + ' ' + ptoPx(x, y) + ' ' + sleep, sleep)
 }
 
-function swipeRight(sleep = 500) {
+function swipeRight(sleep = config.sleep) {
     console.log('swiping right')
-    return sendInput('swipe 900 1200 200 1250 100', sleep)
+    return sendInput('swipe ' + ptoPx(0.8333333333333334, 0.5338078291814946) + ' ' + ptoPx(0.18518518518518517, 0.556049822064057) + ' 100', sleep)
 }
 
 function delay(t, val) {
@@ -40,29 +52,29 @@ function delay(t, val) {
 }
 
 function renamePok() {
-    return tap(1000, 2150
+    return tap(0.9259259259259259, 0.9564056939501779 /*1000 2150*/
     ).then(() =>
-        tap(1000, 1700)
+        tap(0.9259259259259259, 0.7562277580071174 /*1000 1700*/)
     ).then(() =>
-        tap(500, 1000)
+        tap(0.46296296296296297, 0.44483985765124556 /*500 1000*/)
     ).then(() =>
-        tap(930, 730)
+        tap(0.8611111111111112, 0.32473309608540923 /*930 730*/)
     ).then(() =>
-        tap(500, 1500)
+        tap(0.46296296296296297, 0.6672597864768683 /*500 1500*/)
     ).then(() =>
-        tap(500, 1500)
+        tap(0.46296296296296297, 0.6672597864768683 /*500 1500*/)
     ).then(() =>
-        tap(500, 1000)
+        tap(0.46296296296296297, 0.44483985765124556 /*500 1000*/)
     ).then(() =>
-        tap(1000, 2050)
+        tap(0.9259259259259259, 0.9119217081850534 /*1000 2050*/)
     ).then(() =>
-        longTap(500, 1500)
+        longTap(0.46296296296296297, 0.6672597864768683 /*500 1500*/)
     ).then(() =>
-        tap(100, 1600)
+        tap(0.09259259259259259, 0.7117437722419929 /*100 1600*/)
     ).then(() =>
-        tap(950, 1450)
+        tap(0.8796296296296297, 0.645017793594306 /*950 1450*/)
     ).then(() =>
-        tap(500, 1200, 1000)
+        tap(0.46296296296296297, 0.5338078291814946 /*500 1199*/, 2 * config.sleep)
     ).then(() =>
         swipeRight()
     ).then(() =>
