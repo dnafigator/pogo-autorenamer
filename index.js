@@ -24,6 +24,11 @@ function longTap(x, y, sleep = 500) {
     return sendInput('swipe ' + x + ' ' + y + ' ' + x + ' ' + y + ' 500', sleep)
 }
 
+function swipeRight(sleep = 500) {
+    console.log('swiping right')
+    return sendInput('swipe 900 1200 200 1250 100', sleep)
+}
+
 function delay(t, val) {
     return new Promise(function (resolve) {
         console.log('Sleeping for ' + t + 'ms')
@@ -34,26 +39,34 @@ function delay(t, val) {
     });
 }
 
+function renamePok() {
+    return tap(1000, 2150
+    ).then(() =>
+        tap(1000, 1700)
+    ).then(() =>
+        tap(500, 1000)
+    ).then(() =>
+        tap(930, 730)
+    ).then(() =>
+        tap(500, 1500)
+    ).then(() =>
+        tap(500, 1500)
+    ).then(() =>
+        tap(500, 1000)
+    ).then(() =>
+        tap(1000, 2050)
+    ).then(() =>
+        longTap(500, 1500)
+    ).then(() =>
+        tap(100, 1600)
+    ).then(() =>
+        tap(950, 1450)
+    ).then(() =>
+        tap(500, 1200, 1000)
+    ).then(() =>
+        swipeRight()
+    ).then(() =>
+        renamePok())
+}
 
-tap(1000, 2150
-).then(() =>
-    tap(1000, 1700)
-).then(() =>
-    tap(500, 1000)
-).then(() =>
-    tap(930, 730)
-).then(() =>
-    tap(500, 1500)
-).then(() =>
-    tap(500, 1500)
-).then(() =>
-    tap(500, 1000)
-).then(() =>
-    tap(1000, 2050)
-).then(() =>
-    longTap(500, 1500)
-).then(() =>
-    tap(100, 1600)
-).then(() =>
-tap(100, 1600)
-)
+renamePok()
