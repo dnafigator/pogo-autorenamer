@@ -34,5 +34,5 @@
 1. Click 'Switch to Game' button.
 1. Open first pokemon screen.
 1. Place the CalcyIV icon just above the Camera button.
-1. Type `npm start`.
+1. Type `npm start` in Terminal app no your PC.
 1. Watch pokes renaming.
