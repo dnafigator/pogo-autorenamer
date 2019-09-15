@@ -5,6 +5,10 @@
 1. Calcy IV (on Phone).
 1. Pokemon Go game.
 
+# License
+
+Licensed under the terms of the ISC license, see the LICENSE file for details.
+
 # Preparing
 
 1. Enable Developer Options on your Android phone.
