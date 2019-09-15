@@ -52,27 +52,27 @@ function delay(t, val) {
 }
 
 function renamePok() {
-    return tap(0.9259259259259259, 0.9564056939501779 /*1000 2150 menu*/
+    return tap(0.9259259259259259, 0.9564056939501779 /*1000 2150 menu*/, config.sleep * .3
     ).then(() =>
         tap(0.9259259259259259, 0.7562277580071174 /*1000 1700 appraise*/)
     ).then(() =>
         tap(0.46296296296296297, 0.44483985765124556 /*500 1000 screen middle, skip first appraise screen*/)
     ).then(() =>
-        tap(0.8611111111111112, 0.2 /*930 400 camera button, the CalcyIV*/)
+        tap(0.8611111111111112, 0.2 /*930 400 camera button, the CalcyIV*/, config.sleep * .5)
     ).then(() =>
-        tap(0.46296296296296297, 0.6672597864768683 /*500 1500 close CalcyIV screen*/)
+        tap(0.46296296296296297, 0.6672597864768683 /*500 1500 close CalcyIV screen*/, config.sleep * .5)
     ).then(() =>
         tap(0.46296296296296297, 0.6672597864768683 /*500 1500 close appraise*/)
     ).then(() =>
         tap(0.46296296296296297, 0.44483985765124556 /*500 1000 name area, open rename*/)
     ).then(() =>
-        tap(0.9259259259259259, 0.9119217081850534 /*1000 2050 backspace on the keyboard*/)
+        tap(0.9259259259259259, 0.9119217081850534 /*1000 2050 backspace on the keyboard*/, config.sleep * .2)
     ).then(() =>
         longTap(0.46296296296296297, 0.6672597864768683 /*500 1500 context menu in input area*/)
     ).then(() =>
-        tap(0.09259259259259259, 0.7117437722419929 /*100 1600 paste*/)
+        tap(0.09259259259259259, 0.7117437722419929 /*100 1600 paste*/, config.sleep * .3)
     ).then(() =>
-        tap(0.8796296296296297, 0.645017793594306 /*950 1450 OK on input*/)
+        tap(0.8796296296296297, 0.645017793594306 /*950 1450 OK on input*/, config.sleep * .3)
     ).then(() =>
         tap(0.46296296296296297, 0.5338078291814946 /*500 1199 OK on the rename dialog*/, 2 * config.sleep)
     ).then(() =>
