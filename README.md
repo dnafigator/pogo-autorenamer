@@ -19,3 +19,9 @@
 1. If not - please, google how to enable senging events via adb to your phone
 
 # Running
+
+1. Launch the CalcyIV.
+1. Set up desired renaming options.
+1. Click 'Switch to Game' button.
+1. Open first pokemon screen.
+1. Place the CalcyIV icon just above the Camera button.
