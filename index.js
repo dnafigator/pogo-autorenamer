@@ -31,6 +31,11 @@ function tap(x, y, sleep = config.sleep) {
     return sendInput('tap ' + ptoPx(x, y), sleep)
 }
 
+function pasteCmd(sleep = config.sleep) {
+    console.log('pasting')
+    return sendInput('keyevent 279', sleep * .1)
+}
+
 function longTap(x, y, sleep = config.sleep) {
     console.log('longTapping ' + x + ' ' + y)
     return sendInput('swipe ' + ptoPx(x, y) + ' ' + ptoPx(x, y) + ' ' + sleep, sleep)
@@ -38,7 +43,7 @@ function longTap(x, y, sleep = config.sleep) {
 
 function swipeRight(sleep = config.sleep) {
     console.log('swiping right')
-    return sendInput('swipe ' + ptoPx(0.8333333333333334, 0.5338078291814946) + ' ' + ptoPx(0.18518518518518517, 0.556049822064057) + ' 100', sleep)
+    return sendInput('swipe ' + ptoPx(0.83, 0.53) + ' ' + ptoPx(0.19, 0.56) + ' 100', sleep)
 }
 
 function delay(t, val) {
@@ -68,9 +73,7 @@ function renamePok() {
     ).then(() =>
         tap(0.9259259259259259, 0.9119217081850534 /*1000 2050 backspace on the keyboard*/, config.sleep * .2)
     ).then(() =>
-        longTap(0.46296296296296297, 0.6672597864768683 /*500 1500 context menu in input area*/)
-    ).then(() =>
-        tap(0.09259259259259259, 0.7117437722419929 /*100 1600 paste*/, config.sleep * .3)
+        pasteCmd()
     ).then(() =>
         tap(0.8796296296296297, 0.645017793594306 /*950 1450 OK on input*/, config.sleep * .3)
     ).then(() =>
