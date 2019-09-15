@@ -43,7 +43,7 @@ function longTap(x, y, sleep = config.sleep) {
 
 function swipeRight(sleep = config.sleep) {
     console.log('swiping right')
-    return sendInput('swipe ' + ptoPx(0.83, 0.53) + ' ' + ptoPx(0.19, 0.56) + ' 100', sleep)
+    return sendInput('swipe ' + ptoPx(0.83, 0.53) + ' ' + ptoPx(0.19, 0.56) + ' 100', 500)
 }
 
 function delay(t, val) {
@@ -77,7 +77,7 @@ function renamePok() {
     ).then(() =>
         tap(0.8796296296296297, 0.645017793594306 /*950 1450 OK on input*/, config.sleep * .3)
     ).then(() =>
-        tap(0.46296296296296297, 0.5338078291814946 /*500 1199 OK on the rename dialog*/, 2 * config.sleep)
+        tap(0.46296296296296297, 0.5338078291814946 /*500 1199 OK on the rename dialog*/, 4 * config.sleep)
     ).then(() =>
         swipeRight() //goto next poke
     ).then(() =>
