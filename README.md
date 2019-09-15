@@ -18,6 +18,15 @@
 1. If the text 'test' appeared in the input field - you're done evethything correctly.
 1. If not - please, google how to enable senging events via adb to your phone
 
+# Installing
+
+1. Clone the repo.
+1. Navigate to the repo folder.
+1. Copy 'config.js.example' and remove the '.example' (leaving 'config.js').
+1. Adjust the path to your `adb`.
+1. Adjust screen size.
+1. For slow phones adjust sleep value.
+
 # Running
 
 1. Launch the CalcyIV.
@@ -25,3 +34,4 @@
 1. Click 'Switch to Game' button.
 1. Open first pokemon screen.
 1. Place the CalcyIV icon just above the Camera button.
+1. Type `npm start`
